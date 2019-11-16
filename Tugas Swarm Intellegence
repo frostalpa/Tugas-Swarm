@@ -2,8 +2,86 @@
                                                     Monarch Butterfly Optimization
 Struktur Makalah:
 - Deskrpisi (sejarah dll)
+  sejarah pembentukan algoritma monarch butterfly optimization awalnya dari pengamatan tingkah laku atau behaviour dari binatang monarch butterfly 
+  di alam yang di mana di perhatikan dari segi migrasinya, dari hasil penygamatan monarch butterfly ini dilakukan lah perumusan fungsi metaheuristik
+  kemudian di ubah ke dalam fungsi yg di implementasikan ke suatu sistem.
+  
 - Cara kerja MBO(Monarch Butterfly Optimization)
+  1. Semua Monarch Butterfly hanya terletak di Tempat 1 atau Tempat 2. Artinya, Monarch Butterfly di Tempat 1 dan Tempat 2 membentuk 
+    populasi Monarch Butterfly. 
+  2. Masing-masing individu anak Monarch Butterfly dihasilkan oleh operator migrasi dari Monarch Butterfly di Tempat 1 
+    atau di Tempat 2. 
+  3. Agar populasi tidak berubah, Monarch Butterfly tua akan lenyap begitu anak dihasilkan. Dalam metode MBO, ini dapat dilakukan dengan 
+    mengganti induknya dengan induk yang baru dibuat jika ia memiliki tingkat kesempurnaan yang lebih baik dibandingkan dengan induknya. 
+    Di sisi lain, induk yang baru dihasilkan akan cenderung dibuang jika tidak menunjukkan kebugaran/kesempurnaa yang lebih baik 
+    dari pada induknya. Dalam skenario ini, orang tua tetap utuh dan tidak rusak. 
+  4. individu Monarch Butterfly dengan kecakapan terbaiknya akan bergerak secara otomatis ke generasi berikutnya, dan mereka tidak dapat 
+    diubah oleh operator mana pun. Ini dapat menjamin bahwa kualitas atau keefektifan populasi Monarch Butterfly tidak akan pernah memburuk 
+    dengan peningkatan generasi.
+    
 - Algoritma dan pseudo code
+  Algoritma migrasi operator MBO {
+  Begin 
+    for i= 1 to NP1 (for all monarch butterflies in Subpopulation 1) do 
+      for k=1 to D (all the elements in ith monarch butterfly) do 
+        Randomly generate a number randby uniform distribution;
+         r=rand*peri; 
+          if r ≤ p then 
+            Randomly select a monarch butterfly in Subpopulation 1 (say r1);
+            Generate the kth element of the 1 t ix + as Eq. (1). 
+          else 
+            Randomly select a monarch butterfly in Subpopulation 2 (say r2); 
+            Generate the kth element of the 1 t ix + as Eq. (3). 
+          end if 
+        end for k 
+     end for i 
+   End.
+  }
+  
+  Butterfly adjusting Operator {
+  Begin 
+    for j= 1 to NP2 (for all monarch butterflies in Subpopulation 2) do 
+      Calculate the walk step dxby Eq. (7); 
+      Calculate the weighting factor by Eq. (8); 
+        for k=1 to D(all the elements in jth monarch butterfly) do 
+          Randomly generate a number randby uniform distribution; 
+            if rand ≤ p
+              then Generate the kth element of the 1 t jx + as Eq. (4). 
+            else 
+              Randomly select a monarch butterfly in Subpopulation 2 (say r3); 
+              Generate the kth element of the 1 t jx + as Eq. (5). 
+              if r and > BAR then 
+                ()11 ,,+ 0.5 tt j k j k k x x dx ω ++ = × − ; 
+              end if 
+            end if 
+        end for k 
+     end for j 
+   End.
+  }
+  
+  Monarch Butterfly Optimization algorithm {
+  Begin 
+    Step 1: Initialization. Set the generation counter t = 1; initialize the population P of NP monarch butterfly individuals randomly; 
+      set the maximum generation MaxGen, monarch butterfly number NP1 in Land 1 and monarch butterfly number NP2 in Land 2,
+      max step SMax, butterfly adjusting rate BAR, migration period peri, and the migration ratio p. 
+      
+    Step 2: Fitness evaluation. Evaluate each monarch butterfly according to its position. 
+    
+    Step 3: Whilethe best solution is not found ort< MaxGendo Sort all the monarch butterfly individuals according to their fitness. 
+      Divide monarch butterfly individuals into two subpopulations (Land1 and Land 2); 
+        for i= 1 to NP1 (for all monarch butterflies in Subpopulation 1) do 
+          Generate new Subpopulation 1 according to Algorithm 1. 
+        end for i 
+        for j= 1 to NP2 (for all monarch butterflies in Subpopulation 2) do 
+          Generate new Subpopulation 2 according to Algorithm 2. 
+        end for j 
+        Combine the two newly-generatedsubpopulations into one whole population; Evaluate the population according to the newly updated 
+        positions; t= t+1. 
+    Step 4: end while 
+    
+    Step 5: Output the best solution.
+  End.
+
 - Contoh penerapan
 - Daftar Pustaka(APA Style)
 
